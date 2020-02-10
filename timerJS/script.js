@@ -30,7 +30,7 @@ durationInput.style.fontSize = '5rem'
 durationInput.style.textAlign = 'center'
 durationInput.style.width = '8rem'
 durationInput.style.height = '8rem'
-// durationInput.style.borderRadius = '40px'
+durationInput.style.border = 'transparent'
 pauseBtn.style.cursor = 'pointer'
 startBtn.style.cursor = 'pointer'
 //! ====================================
