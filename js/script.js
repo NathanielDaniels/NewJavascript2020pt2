@@ -78,7 +78,7 @@ class Timer {
   reset = () => {
     console.log('Reset Button Clicked!')
     clearInterval(this.interval)
-    this.durationInput.value = this.timeLeft
+    this.durationInput.value = 0
   }
 }
 
