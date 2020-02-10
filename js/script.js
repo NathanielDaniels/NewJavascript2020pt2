@@ -27,10 +27,10 @@ pauseBtn.style.padding = '10px 15px'
 resetBtn.style.padding = '10px 15px'
 resetBtn.style.fontWeight = 'bold'
 durationInput.style.margin = '10px'
-durationInput.style.fontSize = '2.5rem'
+durationInput.style.fontSize = '5rem'
 durationInput.style.textAlign = 'center'
-durationInput.style.width = '6rem'
-durationInput.style.height = '4rem'
+durationInput.style.width = '8rem'
+durationInput.style.height = '6rem'
 pauseBtn.style.cursor = 'pointer'
 startBtn.style.cursor = 'pointer'
 
@@ -45,7 +45,6 @@ class Timer {
     //? Bind only runs after the event is called (in this case, clicked)
     //? Binding "this" connects "this" to start()
     this.durationInput.addEventListener('input', this.ondurationchange)
-    // this.startBtn.addEventListener('click', this.start.bind(this))
     this.startBtn.addEventListener('click', this.start)
     this.pauseBtn.addEventListener('click', this.pause)
     this.resetBtn.addEventListener('click', this.reset)
@@ -53,32 +52,41 @@ class Timer {
   start = () => {
     //? THIS would not work without binding "this" to startBtn event listener
     //? Otherwise Arrow Function would do the same
-    console.log('Play Button Clicked!')
+    // console.log('Play Button Clicked!')
     this.tick()
     this.interval = setInterval(this.tick, 1000)
   }
   pause = () => {
-    console.log('Pause Button Clicked!')
+    // console.log('Pause Button Clicked!')
     clearInterval(this.interval)
   }
   ondurationchange = () => {
     // console.log('Input Clicked!')
-    console.log(durationInput.value)
+    // console.log(durationInput.value)
     // durationInput.value = this.timeLeft
   }
   tick = () => {
-    // this.timeLeft = parseFloat(this.durationInput.value - 1)
-    const timeLeft = parseFloat(this.durationInput.value)
-    this.durationInput.value = timeLeft - 1
-    if (timeLeft === 0) {
-      alert('timer finished')
-      clearInterval(this.interval)
+    const timeRemaining = this.timeRemaining
+    if (this.timeRemaining <= 0) {
+      this.pause()
+      alert('Countdown Complete')
+    } else {
+      this.timeRemaining = timeRemaining - 1
     }
   }
+  //? Get and Set are used to store data in DOM
+  get timeRemaining () {
+    return parseFloat(this.durationInput.value)
+  }
+  set timeRemaining (time) {
+    this.durationInput.value = time
+  }
   reset = () => {
+    //! Broken, need to reset Time after btn click
     console.log('Reset Button Clicked!')
-    clearInterval(this.interval)
-    this.durationInput.value = 0
+    this.pause()
+    this.timeRemaining = durationInput.value
+    console.log(durationInput.value)
   }
 }
 
