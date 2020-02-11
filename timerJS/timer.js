@@ -23,12 +23,12 @@ class Timer {
     //? Otherwise Arrow Function would do the same
     // console.log('Play Button Clicked!')
     if (this.onStart) {
-      this.onStart()
+      this.onStart(this.timeRemaining)
       // console.log(this.onStart())
     }
 
     this.tick()
-    this.interval = setInterval(this.tick, 1000)
+    this.interval = setInterval(this.tick, 50)
   }
   pause = () => {
     // console.log('Pause Button Clicked!')
@@ -48,9 +48,9 @@ class Timer {
       }
       // alert('Countdown Complete')
     } else {
-      this.timeRemaining = timeRemaining - 1
+      this.timeRemaining = timeRemaining - 0.05
       if (this.onTick) {
-        this.onTick()
+        this.onTick(this.timeRemaining)
       }
     }
   }
@@ -59,7 +59,7 @@ class Timer {
     return parseFloat(this.durationInput.value)
   }
   set timeRemaining (time) {
-    this.durationInput.value = time
+    this.durationInput.value = time.toFixed(2)
     // console.log(this.timeRemaining)
   }
   reset = () => {
