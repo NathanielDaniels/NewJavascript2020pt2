@@ -5,22 +5,7 @@ const startBtn = document.getElementById('start')
 const pauseBtn = document.getElementById('pause')
 const resetBtn = document.getElementById('reset')
 const circle = document.querySelector('circle')
-
-//! Styles =========================
-
-startBtn.style.padding = '10px 15px'
-pauseBtn.style.padding = '10px 15px'
-resetBtn.style.padding = '10px 15px'
-resetBtn.style.fontWeight = 'bold'
-durationInput.style.margin = '10px'
-durationInput.style.fontSize = '5rem'
-durationInput.style.textAlign = 'center'
-durationInput.style.width = '15rem'
-durationInput.style.height = '8rem'
-durationInput.style.border = 'transparent'
-pauseBtn.style.cursor = 'pointer'
-startBtn.style.cursor = 'pointer'
-//! ====================================
+//======================================
 
 const perimeter = circle.getAttribute('r') * 2 * Math.PI
 circle.setAttribute('stroke-dasharray', perimeter)
@@ -39,7 +24,6 @@ const timer = new Timer(durationInput, startBtn, pauseBtn, {
     )
   },
   onComplete () {
-    // alert('Fin')
     container.style.backgroundColor = 'hsla(1,100%,40%)'
     durationInput.style.backgroundColor = 'hsla(1,100%,40%)'
   }
