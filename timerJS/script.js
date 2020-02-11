@@ -7,21 +7,7 @@ const resetBtn = document.getElementById('reset')
 const circle = document.querySelector('circle')
 
 //! Styles =========================
-document.body.style.height = '100vh'
-document.body.style.padding = '0'
-document.body.style.margin = '0'
-document.body.style.display = 'flex'
-document.body.style.alignItems = 'center'
-document.body.style.justifyContent = 'center'
-container.style.borderRadius = '50%'
-container.style.border = '2px solid black'
-container.style.height = '300px'
-container.style.width = '300px'
-container.style.display = 'flex'
-container.style.flexDirection = 'column'
-container.style.alignItems = 'center'
-container.style.justifyContent = 'center'
-// container.style.backgroundColor = 'hsla(190,50%,50%)'
+
 startBtn.style.padding = '10px 15px'
 pauseBtn.style.padding = '10px 15px'
 resetBtn.style.padding = '10px 15px'
@@ -40,27 +26,31 @@ const perimeter = circle.getAttribute('r') * 2 * Math.PI
 circle.setAttribute('stroke-dasharray', perimeter)
 
 let duration
+console.log(duration)
 
 const timer = new Timer(durationInput, startBtn, pauseBtn, {
   onStart (totalDuration) {
-    console.log('timer started')
+    duration = totalDuration
   },
   onTick (timeRemaining) {
-    circle.setAttribute('stroke-dashoffset', currentOffset)
-    currentOffset -= 1
+    circle.setAttribute(
+      'stroke-dashoffset',
+      (perimeter * timeRemaining) / duration - perimeter
+    )
   },
   onComplete () {
     // alert('Fin')
     container.style.backgroundColor = 'hsla(1,100%,40%)'
+    durationInput.style.backgroundColor = 'hsla(1,100%,40%)'
   }
 })
 
-const fullParim = 2 * Math.PI * 190
-const halfParim = (2 * Math.PI * 190) / 2
-const quarterParim = 2 * Math.PI * 190 * 0.25
-console.log('full p =', fullParim)
-console.log('half p =', halfParim)
-console.log('quarter p =', quarterParim)
+// const fullParim = 2 * Math.PI * 190
+// const halfParim = (2 * Math.PI * 190) / 2
+// const quarterParim = 2 * Math.PI * 190 * 0.25
+// console.log('full p =', fullParim)
+// console.log('half p =', halfParim)
+// console.log('quarter p =', quarterParim)
 
 // circle.strokeDasharray = fullParim
 // circle.strokeDashoffset = -20

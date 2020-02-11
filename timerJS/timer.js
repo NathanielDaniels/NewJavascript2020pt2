@@ -28,7 +28,7 @@ class Timer {
     }
 
     this.tick()
-    this.interval = setInterval(this.tick, 50)
+    this.interval = setInterval(this.tick, 20)
   }
   pause = () => {
     // console.log('Pause Button Clicked!')
@@ -48,7 +48,7 @@ class Timer {
       }
       // alert('Countdown Complete')
     } else {
-      this.timeRemaining = timeRemaining - 0.05
+      this.timeRemaining = timeRemaining - 0.02
       if (this.onTick) {
         this.onTick(this.timeRemaining)
       }
