@@ -23,6 +23,8 @@ const timer = new Timer(durationInput, startBtn, pauseBtn, {
     )
     if (timeRemaining <= 6.0) {
       circle.setAttribute('stroke', 'red')
+    } else {
+      circle.setAttribute('stroke', 'blueviolet')
     }
   },
   onComplete () {

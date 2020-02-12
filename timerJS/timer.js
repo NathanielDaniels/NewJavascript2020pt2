@@ -26,7 +26,6 @@ class Timer {
     if (this.onStart) {
       this.onStart(this.timeRemaining)
       // console.log(this.onStart())
-     
     }
 
     this.tick()
@@ -62,7 +61,8 @@ class Timer {
   }
   set timeRemaining (time) {
     this.durationInput.value = time.toFixed(2)
-    // console.log(this.timeRemaining)
+    //! .toFixed(2) cuts the number down to the hundredth precentile
+    // console.log(time)
   }
   reset = () => {
     console.log('Reset Button Clicked!')
@@ -70,8 +70,6 @@ class Timer {
     this.durationInput.value = 30
     container.style.backgroundColor = 'White'
     durationInput.style.backgroundColor = 'White'
-    // this.circle.setAttribute('stroke', 'bluepurple')
-    console.log(circle)
     // console.log(durationInput.textinput)
     // console.log(this.timeRemaining)
   }
