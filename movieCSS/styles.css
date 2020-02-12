@@ -17,7 +17,7 @@ h1 {
 }
 
 form {
-  height: 60%;
+  height: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -71,5 +71,80 @@ form .btn button {
 form .btn button:hover {
   -webkit-box-shadow: 0 0 0 transparent;
           box-shadow: 0 0 0 transparent;
+}
+
+.pageInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.pageInfo p {
+  font-size: 1.2rem;
+  width: 60%;
+  text-align: justify;
+}
+
+.tutorial {
+  width: 600px;
+  text-align: center;
+  margin: auto;
+}
+
+figure.image {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: black;
+}
+
+figure .image img {
+  width: 128px;
+}
+
+.notification {
+  margin-top: 20px !important;
+}
+
+.results {
+  max-height: 500px;
+  overflow-y: scroll;
+}
+
+.title .icon {
+  margin-left: 15px;
+}
+
+.hero {
+  margin-bottom: 20px;
+}
+
+.forms {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.dropdown-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 60px;
+}
+
+.dropdown-item img {
+  height: 50px;
+  margin-right: 10px;
 }
 /*# sourceMappingURL=styles.css.map */
