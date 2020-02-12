@@ -70,6 +70,8 @@ class Timer {
     this.durationInput.value = 30
     container.style.backgroundColor = 'White'
     durationInput.style.backgroundColor = 'White'
+    circle.setAttribute('stroke', 'blueviolet')
+    circle.setAttribute('stroke-dashoffset', 0)
     // console.log(durationInput.textinput)
     // console.log(this.timeRemaining)
   }

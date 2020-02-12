@@ -33,10 +33,10 @@ const timer = new Timer(durationInput, startBtn, pauseBtn, {
   }
 })
 
-// const fullParim = 2 * Math.PI * 190
+const fullParim = 2 * Math.PI * 190
 // const halfParim = (2 * Math.PI * 190) / 2
 // const quarterParim = 2 * Math.PI * 190 * 0.25
-// console.log('full p =', fullParim)
+console.log('full p =', fullParim)
 // console.log('half p =', halfParim)
 // console.log('quarter p =', quarterParim)
 
