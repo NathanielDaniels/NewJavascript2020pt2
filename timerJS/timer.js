@@ -4,6 +4,7 @@ class Timer {
     this.startBtn = startBtn
     this.pauseBtn = pauseBtn
     this.resetBtn = resetBtn
+    this.circle = circle
     if (callbacks) {
       this.onStart = callbacks.onStart
       this.onTick = callbacks.onTick
@@ -25,6 +26,7 @@ class Timer {
     if (this.onStart) {
       this.onStart(this.timeRemaining)
       // console.log(this.onStart())
+     
     }
 
     this.tick()
@@ -63,11 +65,14 @@ class Timer {
     // console.log(this.timeRemaining)
   }
   reset = () => {
-    //! Broken, need to reset Time after btn click
     console.log('Reset Button Clicked!')
     this.pause()
-    this.timeRemaining = durationInput.value
-    console.log(durationInput.textinput)
-    console.log(this.timeRemaining)
+    this.durationInput.value = 30
+    container.style.backgroundColor = 'White'
+    durationInput.style.backgroundColor = 'White'
+    // this.circle.setAttribute('stroke', 'bluepurple')
+    console.log(circle)
+    // console.log(durationInput.textinput)
+    // console.log(this.timeRemaining)
   }
 }

@@ -11,7 +11,6 @@ const perimeter = circle.getAttribute('r') * 2 * Math.PI
 circle.setAttribute('stroke-dasharray', perimeter)
 
 let duration
-console.log(duration)
 
 const timer = new Timer(durationInput, startBtn, pauseBtn, {
   onStart (totalDuration) {
@@ -22,10 +21,13 @@ const timer = new Timer(durationInput, startBtn, pauseBtn, {
       'stroke-dashoffset',
       (perimeter * timeRemaining) / duration - perimeter
     )
+    if (timeRemaining <= 6.0) {
+      circle.setAttribute('stroke', 'red')
+    }
   },
   onComplete () {
-    container.style.backgroundColor = 'hsla(1,100%,40%)'
-    durationInput.style.backgroundColor = 'hsla(1,100%,40%)'
+    container.style.backgroundColor = 'red'
+    durationInput.style.backgroundColor = 'red'
   }
 })
 
