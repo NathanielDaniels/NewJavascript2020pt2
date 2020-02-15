@@ -16,17 +16,26 @@ const fetchData = async searchTerm => {
 };
 
 const input = document.querySelector("input");
-let timeoutID;
 
-const onInput = e => {
-  if (timeoutID) {
-    clearTimeout(timeoutID);
-  }
-  timeoutID = setTimeout(() => {
-    // console.log(e.target.value);
-    fetchData(e.target.value);
-  }, 500);
+const debounce = func => {
+  let timeoutID;
+  (...args) => {
+    if (timeoutID) {
+      clearTimeout(timeoutID);
+    }
+    timeoutID = setTimeout(() => {
+      func.apply(null, args);
+    }, 1000);
+    return;
+  };
 };
+
+// const onInput = e => {
+//   timeoutID = setTimeout(() => {
+//     // console.log(e.target.value);
+//     fetchData(e.target.value);
+//   }, 500);
+// };
 
 input.addEventListener("input", onInput);
 
