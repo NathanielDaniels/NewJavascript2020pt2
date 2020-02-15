@@ -30,12 +30,9 @@ const debounce = func => {
   };
 };
 
-// const onInput = e => {
-//   timeoutID = setTimeout(() => {
-//     // console.log(e.target.value);
-//     fetchData(e.target.value);
-//   }, 500);
-// };
+const onInput = e => {
+  fetchData(e.target.value);
+};
 
 input.addEventListener("input", onInput);
 
