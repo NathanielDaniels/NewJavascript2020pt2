@@ -12,12 +12,10 @@ const fetchData = async searchTerm => {
     }
   });
 
-  console.log(response.data);
+  // console.log(response.data);
 };
 
 const input = document.querySelector("input");
-
-
 
 const onInput = e => {
   fetchData(e.target.value);
