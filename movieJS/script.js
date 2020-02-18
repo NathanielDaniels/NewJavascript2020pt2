@@ -7,18 +7,16 @@ const fetchData = async searchTerm => {
     params: {
       apikey: "55cde2c2",
       s: searchTerm
-      // i: "tt0848228"
-      // i: input
     }
   });
-
   return response.data.Search;
 };
 
 const input = document.querySelector("input");
 
-const onInput = e => {
-  fetchData(e.target.value);
+const onInput = async e => {
+  const movies = await fetchData(e.target.value);
+  console.log(movies);
 };
 
 input.addEventListener("input", debounce(onInput, 500));
