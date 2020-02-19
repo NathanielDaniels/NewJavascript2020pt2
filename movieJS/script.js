@@ -9,6 +9,11 @@ const fetchData = async searchTerm => {
       s: searchTerm
     }
   });
+
+  console.log(response.data.Error);
+  if (response.data.Error) {
+    return [];
+  }
   return response.data.Search;
 };
 
@@ -16,7 +21,15 @@ const input = document.querySelector("input");
 
 const onInput = async e => {
   const movies = await fetchData(e.target.value);
-  console.log(movies);
+  for (let movie of movies) {
+    console.log(movie.Title);
+    const div = document.createElement("div");
+    div.innerHTML = `
+    <img src="${movie.Poster}" /
+    <h1>${movie.Title}</h1>
+    `;
+    document.body.appendChild(div);
+  }
 };
 
 input.addEventListener("input", debounce(onInput, 500));
