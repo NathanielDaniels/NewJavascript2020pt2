@@ -48,20 +48,3 @@ input.addEventListener("input", debounce(onInput, 500));
 // console.log(img);
 
 //==================================================
-// Practice
-
-// const fetchData2 = async () => {
-//   const response = await axios.get("http://www.omdbapi.com/", {
-//     params: {
-//       apikey: "55cde2c2",
-//       s: "Coraline"
-//     }
-//   });
-//   const poster = response.data.Search[1].Poster;
-//   const img = document.createElement("img");
-//   img.setAttribute("src", poster);
-//   console.log(img);
-//   document.body.append(img);
-// };
-
-// fetchData2();
