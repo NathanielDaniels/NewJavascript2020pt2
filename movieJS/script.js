@@ -36,37 +36,46 @@ const fetchData = async searchTerm => {
   console.log(response.data.Error);
   if (response.data.Error) {
     document.body.append(response.data.Error);
+    // input.value = "";
     return [];
   }
 
   return response.data.Search;
 };
 
-// if (input.value === "") {
-//   console.log("no input");
-// }
-
-// const input = document.querySelector("input");
-
 const onInput = async e => {
   const movies = await fetchData(e.target.value);
 
+  if (!movies.length) {
+    dropdown.classList.remove("is-active");
+    return;
+  }
+  resultsWrapper.innerHTML = "";
   dropdown.classList.add("is-active");
 
   for (let movie of movies) {
-    console.log(movie.Title);
+    // console.log(movie.Title);
     const option = document.createElement("a");
+    const imgSrc = movie.Poster === "N/A" ? "" : movie.Poster;
+
     option.classList.add("dropdown-item");
     option.innerHTML = `
-    <img src="${movie.Poster}" />
+    <img src="${imgSrc}" />
     ${movie.Title}
-    ${option.classList.add("dropdown-divider")}
     `;
+    option.classList.add("dropdown-divider");
     resultsWrapper.appendChild(option);
   }
 };
 
 input.addEventListener("input", debounce(onInput, 500));
+
+document.addEventListener("click", e => {
+  console.log(e.target);
+  if (!root.contains(e.target)) {
+    dropdown.classList.remove("is-active");
+  }
+});
 
 //==================================================
 
