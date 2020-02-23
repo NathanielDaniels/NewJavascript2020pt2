@@ -66,7 +66,6 @@ const onInput = async e => {
       dropdown.classList.remove("is-active");
       input.value = movie.Title;
       onMovieSelect(movie);
-      // movieTemplate(movie);
     });
     option.classList.add("dropdown-divider");
     resultsWrapper.appendChild(option);
@@ -76,7 +75,6 @@ const onInput = async e => {
 input.addEventListener("input", debounce(onInput, 500));
 
 document.addEventListener("click", e => {
-  // console.log(e.target);
   if (!root.contains(e.target)) {
     dropdown.classList.remove("is-active");
   }
