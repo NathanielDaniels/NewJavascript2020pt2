@@ -98,7 +98,7 @@ const onMovieSelect = async movie => {
 const movieTemplate = movieDetail => {
   return `
     <article class="media">
-      <figure class="media-left">
+      <figure cjlass="media-left">
         <p class="image">
           <img src="${movieDetail.Poster}" />
         </p>
