@@ -10,8 +10,6 @@
 //? Add in html for menu
 //? Add in option to menu
 
-
-
 const fetchData = async searchTerm => {
   const response = await axios.get("http://www.omdbapi.com/", {
     params: {
@@ -19,17 +17,24 @@ const fetchData = async searchTerm => {
       s: searchTerm
     }
   });
-
   // console.log(response.data.Error);
   if (response.data.Error) {
     // document.body.append(response.data.Error);
     return [];
   }
-
   return response.data.Search;
 };
 
-
+createAutoComplete({
+  root: document.querySelector(".autocomplete"),
+  renderOption(movie) {
+    const imgSrc = movie.Poster === "N/A" ? "" : movie.Poster;
+    return `
+      <img src = "${imgSrc}" />
+      ${movie.Title} (${movie.Year})
+    `;
+  }
+});
 
 const onMovieSelect = async movie => {
   const response = await axios.get("http://www.omdbapi.com/", {
@@ -47,7 +52,7 @@ const onMovieSelect = async movie => {
 const movieTemplate = movieDetail => {
   return `
     <article class="media">
-      <figure cjlass="media-left">
+      <figure class="media-left">
         <p class="image">
           <img src="${movieDetail.Poster}" />
         </p>
@@ -60,23 +65,23 @@ const movieTemplate = movieDetail => {
         </div>
       </div>
     </article>
-    <article class="notification is-primary">
+    <article class="notification is-info">
     <p class="title">${movieDetail.Awards}</p>
     <p class="subtitle"">Awards</p>
     </article>
-    <article class="notification is-primary">
+    <article class="notification is-info">
       <p class="title">${movieDetail.BoxOffice}</p>
       <p class="subtitle" >Box Office</p>
     </article>
-    <article class="notification is-primary">
+    <article class="notification is-info">
       <p class="title">${movieDetail.Metascore}</p>
       <p class="subtitle">Metascore</p>
     </article>
-    <article class="notification is-primary">
+    <article class="notification is-info">
       <p class="title">${movieDetail.imdbRating}</p>
       <p class="subtitle">IMDB Rating</p>
     </article>
-    <article class="notification is-primary">
+    <article class="notification is-info">
       <p class="title">${movieDetail.imdbVotes}</p>
       <p class="subtitle">IMDB Votes</p>
     </article>
