@@ -10,21 +10,6 @@
 //? Add in html for menu
 //? Add in option to menu
 
-const fetchData = async searchTerm => {
-  const response = await axios.get("http://www.omdbapi.com/", {
-    params: {
-      apikey: "55cde2c2",
-      s: searchTerm
-    }
-  });
-  // console.log(response.data.Error);
-  if (response.data.Error) {
-    // document.body.append(response.data.Error);
-    return [];
-  }
-  return response.data.Search;
-};
-
 createAutoComplete({
   root: document.querySelector(".autocomplete"),
   renderOption(movie) {
@@ -33,6 +18,26 @@ createAutoComplete({
       <img src = "${imgSrc}" />
       ${movie.Title} (${movie.Year})
     `;
+  },
+  onOptionSelect(movie) {
+    onMovieSelect(movie);
+  },
+  inputValue(movie) {
+    return movie.Title;
+  },
+  async fetchData(searchTerm) {
+    const response = await axios.get("http://www.omdbapi.com/", {
+      params: {
+        apikey: "55cde2c2",
+        s: searchTerm
+      }
+    });
+    // console.log(response.data.Error);
+    if (response.data.Error) {
+      // document.body.append(response.data.Error);
+      return [];
+    }
+    return response.data.Search;
   }
 });
 
