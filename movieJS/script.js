@@ -103,7 +103,21 @@ const movieTemplate = movieDetail => {
   const metascore = parseInt(movieDetail.Metascore);
   const imdbRating = parseFloat(movieDetail.imdbRating);
   const imdbVotes = parseInt(movieDetail.imdbVotes.replace(/,/g, ""));
-  // console.log(imdbVotes);
+
+  let count = 0;
+  const awards = movieDetail.Awards.split(" ").forEach(word => {
+    const value = parseInt(word);
+    // console.log(value);
+
+    if (isNaN(value)) {
+      return;
+    } else {
+      count += value;
+    }
+  });
+
+  console.log(count);
+  // console.log(awards);
   return `
     <article class="media">
       <figure class="media-left">
