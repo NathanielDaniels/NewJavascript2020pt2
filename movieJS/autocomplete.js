@@ -17,7 +17,6 @@ const createAutoComplete = ({
 `;
   const input = root.querySelector("input");
   const dropdown = root.querySelector(".dropdown");
-  // const dropdownContent = root.querySelector(".dropdown-content");
   const resultsWrapper = root.querySelector(".results");
 
   const onInput = async e => {
@@ -25,7 +24,6 @@ const createAutoComplete = ({
 
     if (!items.length) {
       dropdown.classList.remove("is-active");
-      // dropdownContent.style = "display: none";
       return;
     }
     resultsWrapper.innerHTML = "";

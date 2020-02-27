@@ -58,6 +58,7 @@ createAutoComplete({
   }
 });
 
+//* === Selecting Movie ===
 const onMovieSelect = async (movie, summaryElement) => {
   const response = await axios.get("http://www.omdbapi.com/", {
     params: {
