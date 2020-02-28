@@ -86,9 +86,17 @@ const onMovieSelect = async (movie, summaryElement, side) => {
 };
 
 const runComparison = () => {
-  // find the first 'article element for each movie
-  // run a comparison on the number of awards
-  // apply some styling to taht 'article' element
+  const leftSideStats = document.querySelectorAll(
+    "#left-summary .notification"
+  );
+  const rightSideStats = document.querySelectorAll(
+    "#right-summary .notification"
+  );
+
+  leftSideStats.forEach((leftStat, index) => {
+    const rightStat = rightSideStats[index];
+    console.log(leftStat, rightStat);
+  });
 
   console.log("time for comparison");
   if (leftMovie.Title === rightMovie.Title) {
