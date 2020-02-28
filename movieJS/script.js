@@ -85,6 +85,7 @@ const onMovieSelect = async (movie, summaryElement, side) => {
   // console.log(response.data.Title, response.data.Rated);
 };
 
+
 const runComparison = () => {
   const leftSideStats = document.querySelectorAll(
     "#left-summary .notification"
@@ -96,6 +97,13 @@ const runComparison = () => {
   leftSideStats.forEach((leftStat, index) => {
     const rightStat = rightSideStats[index];
     console.log(leftStat, rightStat);
+    const leftSideValue = leftStat.dataset.value;
+    const rightSideValue = rightStat.dataset.value;
+
+    if (rightSideValue > leftSideValue) {
+      const colorChange = document.querySelector(".is-info");
+      console.log(colorChange);
+    }
   });
 
   console.log("time for comparison");
