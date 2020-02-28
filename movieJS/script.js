@@ -85,7 +85,6 @@ const onMovieSelect = async (movie, summaryElement, side) => {
   // console.log(response.data.Title, response.data.Rated);
 };
 
-
 const runComparison = () => {
   const leftSideStats = document.querySelectorAll(
     "#left-summary .notification"
@@ -101,8 +100,11 @@ const runComparison = () => {
     const rightSideValue = rightStat.dataset.value;
 
     if (rightSideValue > leftSideValue) {
-      const colorChange = document.querySelector(".is-info");
-      console.log(colorChange);
+      leftStat.classList.remove("is-info");
+      leftStat.classList.add("is-warning");
+    } else {
+      rightStat.classList.remove("is-info");
+      rightStat.classList.add("is-warning");
     }
   });
 
