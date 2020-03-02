@@ -44,6 +44,23 @@ const render = Render.create({
 
 // Maze Generation
 
+const shuffle = arr => {
+  let counter = arr.length;
+
+  while (counter > 0) {
+    const index = Math.floor(Math.random() * counter);
+
+    counter--;
+
+    const temp = arr[counter];
+    arr[counter] = arr[index];
+    arr[index] = temp;
+  }
+  return arr;
+};
+
+// console.log(shuffle());
+
 const grid = Array(cells)
   .fill(null)
   .map(() => Array(cells).fill(false));
@@ -59,7 +76,36 @@ const horizontals = Array(cells - 1)
 const startRow = Math.floor(Math.random() * cells);
 const startColumn = Math.floor(Math.random() * cells);
 
+const stepThroughCell = (row, column) => {
+  // If i have visited the cell at [row, column], then return
+  if (grid[row][column]) {
+    // console.log(grid[row][column]);
+    return;
+  }
+
+  // Mark this sell as veing visited
+  grid[row][column] = true;
+
+  // Assemble rendomly-ordered list of neighbors
+  const neighbors = shuffle([
+    [row - 1, column],
+    [row, column + 1],
+    [row + 1, column],
+    [row, column - 1]
+  ]);
+
+  console.log(neighbors);
+  // for each neightbor...
+  // - see if that neighbor is out of bounds
+  // - check if we have visited that neighbor, continue to next neighbor
+  // Remove wall from horizontal or vertical (depending on direction)
+  // Visit that next cell
+};
+
+stepThroughCell(1, 1);
+
 console.log(startRow, startColumn);
+console.log(grid);
 
 Render.run(render);
 Runner.run(Runner.create(), engine);
