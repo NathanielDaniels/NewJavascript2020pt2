@@ -78,13 +78,17 @@ for (let i = 0; i < 50; i++) {
     World.add(
       world,
       Bodies.rectangle(Math.random() * width, Math.random() * height, 50, 50, {
-        isStatic: false
+        isStatic: true,
+        render: {
+          // fillStyle: "red"
+        }
       })
     );
   } else {
     World.add(
       world,
       Bodies.circle(Math.random() * width, Math.random() * height, 35, {
+        isStatic: false,
         render: {
           // fillStyle: "blueviolet"
         }
