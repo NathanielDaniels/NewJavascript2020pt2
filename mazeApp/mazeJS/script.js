@@ -108,9 +108,9 @@ const stepThroughCell = (row, column) => {
     }
 
     // - check if we have visited that neighbor, continue to next neighbor
-    // if (grid[nextRow][nextColumn]) {
-    //   continue;
-    // }
+    if (grid[nextRow][nextColumn]) {
+      continue;
+    }
 
     // Remove wall from horizontal or vertical (depending on direction)
   }
