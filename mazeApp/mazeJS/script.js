@@ -113,15 +113,41 @@ const stepThroughCell = (row, column) => {
     }
 
     // Remove wall from horizontal or vertical (depending on direction)
-  }
 
-  // Visit that next cell
+    switch (direction) {
+      case "left":
+        verticals[row][column - 1] = true;
+        break;
+      case "right":
+        verticals[row][column] = true;
+        break;
+      case "up":
+        horizontals[row - 1][column] = true;
+        break;
+      case "down":
+        horizontals[row][column] = true;
+        break;
+    }
+    // Visit that next cell
+    stepThroughCell(nextRow, nextColumn);
+  }
 };
 
 stepThroughCell(startRow, startColumn);
+// stepThroughCell(1, 1);
 
-console.log(startRow, startColumn);
-console.log(grid);
+horizontals.forEach(row => {
+  console.log(row);
+  row.forEach(open => {
+    if (open) {
+      return;
+    }
+    const wall = Bodies.rectangle(50, 50);
+  });
+});
+
+// console.log(startRow, startColumn);
+// console.log(grid);
 
 Render.run(render);
 Runner.run(Runner.create(), engine);
