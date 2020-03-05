@@ -27,6 +27,7 @@
 const width = 600;
 const height = 600;
 const cells = 3;
+const unitLength = width / cells;
 
 const { Engine, Render, Runner, World, Bodies } = Matter;
 
@@ -136,13 +137,22 @@ const stepThroughCell = (row, column) => {
 stepThroughCell(startRow, startColumn);
 // stepThroughCell(1, 1);
 
-horizontals.forEach(row => {
+horizontals.forEach((row, rowIndex) => {
   console.log(row);
-  row.forEach(open => {
+  row.forEach((open, columnIndex) => {
     if (open) {
       return;
     }
-    const wall = Bodies.rectangle(50, 50);
+    const wall = Bodies.rectangle(
+      columnIndex * unitLength + unitLength / 2,
+      rowIndex * unitLength + unitLength,
+      unitLength,
+      10,
+      {
+        isStatic: true
+      }
+    );
+    World.add(world, wall);
   });
 });
 
