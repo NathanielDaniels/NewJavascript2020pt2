@@ -156,6 +156,14 @@ horizontals.forEach((row, rowIndex) => {
   });
 });
 
+verticals.forEach((row, rowIndex) => {
+  row.forEach((open, columnIndex) => {
+    if (open) {
+      return;
+    }
+  });
+});
+
 // console.log(startRow, startColumn);
 // console.log(grid);
 
