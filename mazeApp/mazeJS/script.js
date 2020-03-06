@@ -215,19 +215,15 @@ document.addEventListener("keydown", e => {
   // console.log(x, y);
   switch (e.key) {
     case "ArrowUp":
-      console.log(`${e.key} pressed`);
       Body.setVelocity(ball, { x, y: y - 5 });
       break;
     case "ArrowDown":
-      console.log(`${e.key} pressed`);
       Body.setVelocity(ball, { x, y: y + 5 });
       break;
     case "ArrowRight":
-      console.log(`${e.key} pressed`);
       Body.setVelocity(ball, { x: x + 5, y });
       break;
     case "ArrowLeft":
-      console.log(`${e.key} pressed`);
       Body.setVelocity(ball, { x: x - 5, y });
       break;
   }
