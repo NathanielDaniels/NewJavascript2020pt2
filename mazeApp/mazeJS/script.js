@@ -29,7 +29,7 @@ const height = 600;
 const cells = 3;
 const unitLength = width / cells;
 
-const { Engine, Render, Runner, World, Bodies } = Matter;
+const { Engine, Render, Runner, World, Bodies, Body } = Matter;
 
 const engine = Engine.create();
 const { world } = engine;
@@ -206,24 +206,29 @@ World.add(world, goal);
 
 // Ball
 const ball = Bodies.circle(unitLength / 2, unitLength / 2, unitLength * 0.3, {
-  isStatic: true
+  isStatic: false
 });
 World.add(world, ball);
 
 document.addEventListener("keydown", e => {
-  console.log(e.key);
+  const { x, y } = ball.velocity;
+  // console.log(x, y);
   switch (e.key) {
-    case "w":
+    case "ArrowUp":
       console.log(`${e.key} pressed`);
+      Body.setVelocity(ball, { x, y: y - 5 });
       break;
-    case "a":
+    case "ArrowDown":
       console.log(`${e.key} pressed`);
+      Body.setVelocity(ball, { x, y: y + 5 });
       break;
-    case "s":
+    case "ArrowRight":
       console.log(`${e.key} pressed`);
+      Body.setVelocity(ball, { x: x + 5, y });
       break;
-    case "d":
+    case "ArrowLeft":
       console.log(`${e.key} pressed`);
+      Body.setVelocity(ball, { x: x - 5, y });
       break;
   }
 });
