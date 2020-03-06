@@ -24,8 +24,8 @@
 
 //==================================
 
-const width = 600;
-const height = 600;
+const width = window.innerWidth;
+const height = window.innerHeight;
 const cells = 10;
 const unitLength = width / cells;
 
