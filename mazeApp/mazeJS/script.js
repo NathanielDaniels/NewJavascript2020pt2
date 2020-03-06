@@ -164,8 +164,8 @@ verticals.forEach((row, rowIndex) => {
   });
 });
 
-// console.log(startRow, startColumn);
-// console.log(grid);
+console.log(startRow, startColumn);
+console.log(grid);
 
 Render.run(render);
 Runner.run(Runner.create(), engine);
