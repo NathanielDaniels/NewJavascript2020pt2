@@ -26,7 +26,7 @@
 
 const width = window.innerWidth;
 const height = window.innerHeight;
-const cells = 10;
+const cells = 5;
 const unitLength = width / cells;
 
 const { Engine, Render, Runner, World, Bodies, Body, Events } = Matter;
@@ -136,10 +136,8 @@ const stepThroughCell = (row, column) => {
 };
 
 stepThroughCell(startRow, startColumn);
-// stepThroughCell(1, 1);
 
 horizontals.forEach((row, rowIndex) => {
-  // console.log(row);
   row.forEach((open, columnIndex) => {
     if (open) {
       return;
@@ -176,9 +174,6 @@ verticals.forEach((row, rowIndex) => {
     World.add(world, wall);
   });
 });
-
-// console.log(startRow, startColumn);
-// console.log(grid);
 
 Render.run(render);
 Runner.run(Runner.create(), engine);
@@ -217,7 +212,6 @@ World.add(world, ball);
 
 document.addEventListener("keydown", e => {
   const { x, y } = ball.velocity;
-  // console.log(x, y);
   switch (e.key) {
     case "ArrowUp":
       Body.setVelocity(ball, { x, y: y - 5 });
