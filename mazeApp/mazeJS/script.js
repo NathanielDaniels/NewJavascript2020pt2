@@ -26,8 +26,8 @@
 
 const width = window.innerWidth;
 const height = window.innerHeight;
-const cellsHorizontal = 4;
-const cellsVertical = 3;
+const cellsHorizontal = 8;
+const cellsVertical = 10;
 const unitLengthX = width / cellsHorizontal;
 const unitLengthY = height / cellsVertical;
 
@@ -145,9 +145,9 @@ horizontals.forEach((row, rowIndex) => {
       return;
     }
     const wall = Bodies.rectangle(
-      columnIndex * unitLength + unitLength / 2,
-      rowIndex * unitLength + unitLength,
-      unitLength,
+      columnIndex * unitLengthX + unitLengthX / 2,
+      rowIndex * unitLengthY + unitLengthY,
+      unitLengthX,
       10,
       {
         label: "wall",
@@ -164,10 +164,10 @@ verticals.forEach((row, rowIndex) => {
       return;
     }
     const wall = Bodies.rectangle(
-      columnIndex * unitLength + unitLength,
-      rowIndex * unitLength + unitLength / 2,
+      columnIndex * unitLengthX + unitLengthX,
+      rowIndex * unitLengthY + unitLengthY / 2,
       10,
-      unitLength,
+      unitLengthY,
       {
         isStatic: true,
         label: "wall"
@@ -192,10 +192,10 @@ World.add(world, walls);
 
 // Goal
 const goal = Bodies.rectangle(
-  width - unitLength / 2,
-  height - unitLength / 2,
-  unitLength * 0.7,
-  unitLength * 0.7,
+  width - unitLengthX / 2,
+  height - unitLengthY / 2,
+  unitLengthX * 0.7,
+  unitLengthY * 0.7,
   {
     isStatic: true,
     label: "goal"
@@ -206,7 +206,8 @@ const goal = Bodies.rectangle(
 World.add(world, goal);
 
 // Ball
-const ball = Bodies.circle(unitLength / 2, unitLength / 2, unitLength * 0.3, {
+const ballRadius = Math.min(unitLengthX, unitLengthY);
+const ball = Bodies.circle(unitLengthX / 2, unitLengthY / 2, ballRadius * 0.3, {
   isStatic: false,
   label: "ball"
 });
