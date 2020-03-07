@@ -3,12 +3,12 @@ html {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 h1 {
   color: white;
-  font-size: 36px;
+  font-size: 64px;
   border: 2px solid blueviolet;
   padding: 20px;
   background: #22083a;
