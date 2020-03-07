@@ -1,3 +1,25 @@
 html {
   overflow: hidden;
 }
+
+.hidden {
+  display: none;
+}
+
+h1 {
+  color: white;
+  font-size: 36px;
+  border: 2px solid blueviolet;
+  padding: 20px;
+  background: hsl(271, 76%, 13%);
+}
+
+.winner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 1;
+  height: 100vh;
+  width: 100vw;
+}
