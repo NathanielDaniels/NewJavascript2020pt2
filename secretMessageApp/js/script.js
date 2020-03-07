@@ -1,3 +1,8 @@
+const card1 = document.querySelector(".card1");
+console.log(card1);
+const card2 = document.querySelector(".card2");
+console.log(card2);
+
 document.querySelector("form").addEventListener("submit", e => {
   e.preventDefault();
 
@@ -8,6 +13,9 @@ document.querySelector("form").addEventListener("submit", e => {
   const inputLink = document.querySelector("#link-input");
   inputLink.value = `${window.location}#${encrypted}`;
   inputLink.select();
+
+  card1.classList.add("hidden");
+  card2.classList.remove("hidden");
 });
 
 // const change1 = btoa("Nathan");
