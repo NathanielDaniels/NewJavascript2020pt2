@@ -12,6 +12,14 @@ body {
           align-items: center;
 }
 
+section {
+  width: 45rem;
+}
+
+label {
+  font-size: 1.3rem;
+}
+
 .hidden {
   display: none !important;
 }
