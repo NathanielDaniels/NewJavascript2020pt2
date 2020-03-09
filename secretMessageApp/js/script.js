@@ -1,8 +1,7 @@
+const input = document.querySelector("#message-input");
 document.querySelector("form").addEventListener("submit", e => {
   e.preventDefault();
 
-  const input = document.querySelector("#message-input");
-  console.log(input.value);
   const encrypted = btoa(input.value);
 
   const inputLink = document.querySelector("#link-input");
@@ -13,6 +12,16 @@ document.querySelector("form").addEventListener("submit", e => {
   const card2 = document.querySelector(".card2");
   card1.classList.add("hidden");
   card2.classList.remove("hidden");
+});
+
+const decodeBtn = document.querySelector("#decodeBtn");
+decodeBtn.addEventListener("click", () => {
+  const newEl = document.createElement("div");
+  newEl.innerHTML = `${input.value}`;
+  newEl.style =
+    "position: absolute; top: 300px; color: white; font-size: 2rem;";
+  // console.log(newEl);
+  document.body.appendChild(newEl);
 });
 
 // const change1 = btoa("Nathan");
