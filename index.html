@@ -119,6 +119,12 @@
 
     <section class="row">
       <div class="middle col s8 offset-s2">
+        <div id="message-show" class="card-panel hide">
+          <h1></h1>
+          <div>
+            <a href="./index.html">Create your Own Secret Message</a>
+          </div>
+        </div>
         <div class="card-panel card1 z-depth-4">
           <form action="">
             <label for="main-input">Enter a Secret Message</label>
@@ -130,7 +136,10 @@
           <div>
             <label for="input-link">Share this link with a friend</label>
             <input id="link-input" name="input-link" type="text" />
-            <button id="decodeBtn" class="btn z-depth-2">Decode!</button>
+            <button id="decodeBtn" class="btn z-depth-2">Decode</button>
+            <button id="createNewBtn" class="btn z-depth-2 createNewBtn">
+              <a href="./index.html">Create New</a>
+            </button>
           </div>
         </div>
       </div>

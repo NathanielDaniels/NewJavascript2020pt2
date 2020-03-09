@@ -18,6 +18,7 @@ document.querySelector("form").addEventListener("submit", e => {
   card2.classList.remove("hidden");
 });
 
+// Decode Button
 const decodeBtn = document.querySelector("#decodeBtn");
 decodeBtn.addEventListener("click", () => {
   const newEl = document.createElement("div");

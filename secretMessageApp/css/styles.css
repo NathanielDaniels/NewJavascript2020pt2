@@ -33,4 +33,12 @@ label {
 .hidden {
   display: none !important;
 }
+
+.createNewBtn {
+  float: right;
+}
+
+.createNewBtn a {
+  color: white;
+}
 /*# sourceMappingURL=styles.css.map */
