@@ -1,9 +1,14 @@
+html {
+  overflow: hidden;
+}
+
 body {
   width: 100%;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: blueviolet;
 }
 
 section {
@@ -12,6 +17,11 @@ section {
 
 label {
   font-size: 1.3rem;
+  color: #555;
+}
+
+.card2 {
+  background: #fff;
 }
 
 .hidden {
